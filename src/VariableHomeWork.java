@@ -11,5 +11,6 @@ public class VariableHomeWork {
         System.out.println(gender);
         System.out.println(isAdmin);
 
+
     }
 }
