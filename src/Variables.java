@@ -70,6 +70,7 @@ public class Variables {
             System.out.println("You are NOT a student!");
         }
 
+
         String name = "Hirunika Nirmani";
         System.out.println("Hello " + name);
 
