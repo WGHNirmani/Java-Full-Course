@@ -62,6 +62,7 @@ public class WhileLoops {
 
         System.out.println("You picked " + number);
 
+        
         scanner.close();
     }
 }
