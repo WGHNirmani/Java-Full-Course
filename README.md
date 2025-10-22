@@ -20,7 +20,7 @@ It also generates charts showing the effect of different agent counts on these m
 
 Install dependencies using:
 
-``` pip install matplotlib
+```python pip install matplotlib
 
 # Running the Simulation
 
@@ -37,7 +37,7 @@ max_arrival_gap = 4
 agents_list = [2, 3, 5]
 
 3. Run the script:
-python call_center_simulation.py
+```python call_center_simulation.py
 
 4. View results in the console and charts saved as PNG files.
 
