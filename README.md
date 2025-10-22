@@ -20,7 +20,7 @@ It also generates charts showing the effect of different agent counts on these m
 
 Install dependencies using:
 
-pip install matplotlib
+``` pip install matplotlib
 
 # Running the Simulation
 
@@ -28,6 +28,7 @@ pip install matplotlib
 
 2. (Optional) Adjust simulation parameters at the top of the script:
 
+```python
 total_calls = 30
 min_call_time = 2
 max_call_time = 10
