@@ -1,86 +1,114 @@
-# Food Delivery Dispatch System Simulation
+# Call Center Simulation
 
-## Overview
-This project simulates a **food delivery dispatch system** where customer orders are assigned to a limited number of delivery riders. The simulation tracks key performance metrics, such as average waiting time, total completed deliveries, orders that had to wait, and maximum queue length. It allows experimentation with different numbers of riders to analyze system performance under varying resource configurations.
+# Project Title
 
-## Features
-- Configurable number of delivery riders.
-- Random order arrivals and variable delivery times.
-- FIFO order queue management when all riders are busy.
-- Records key metrics: average waiting time, total deliveries, maximum waiting time, orders that waited, and maximum queue length.
-- Generates bar charts to visualize performance metrics for each scenario.
+A Call Center with Limited Agents
 
-## Requirements
-- Python 3.7 or higher
-- Packages:
-  - `matplotlib` (for generating charts)
-  - `os` (standard Python library for file operations)
+## 1. Project Overview
 
-Install `matplotlib` via pip:
-```bash
+This simulation models the performance of a call center that handles incoming customer calls using a limited number of agents.
+The objective is to study how the number of available agents affects:
+
+- Customer waiting time
+- Maximum delay experienced
+- Number of calls that had to wait
+
+The simulation provides insight into service efficiency and helps identify the optimal staffing level for better performance and cost balance.
+
+## 2. Purpose of the Simulation
+
+The purpose is to analyze system performance under different staffing scenarios.
+By simulating random call arrivals and service durations, the study observes how queues form when agents are busy and measures how this affects customer waiting time.
+
+## 3. Software and Tools Used
+
+- Language: Python 3.x
+- Libraries Required:
+
+```
 pip install matplotlib
 ```
 
-## File Structure
+- IDE Options: VS Code, PyCharm, or any Python-supported environment.
+
+## 4. How to Run the Simulation
+
+### Step 1: Save the code
+
+Save the simulation file as `call_center_simulation.py`.
+
+### Step 2: Run the file
+
+Open a terminal in the same directory and run:
+
 ```
-simulation_charts/       # Folder where generated charts will be saved
-main.py                  # Python script containing the simulation code
-README.md                # This file
-```
-
-## Usage Instructions
-
-1. **Run the Simulation**  
-   Execute the Python script:
-   ```bash
-   python main.py
-   ```
-
-2. **Adjust Simulation Parameters (Optional)**  
-   Inside `main.py`, you can modify parameters such as:
-   ```python
-   SIMULATION_TIME = 60       # Total simulation duration in minutes
-   ORDER_ARRIVAL_RATE = 5     # Average time (minutes) between order arrivals
-   DELIVERY_TIME_MIN = 8      # Minimum delivery duration in minutes
-   DELIVERY_TIME_MAX = 12     # Maximum delivery duration in minutes
-   rider_counts = [3, 5, 8]   # Number of riders to simulate
-   ```
-
-3. **View Simulation Results**  
-   After execution, the console will display a summary for each rider configuration:
-   ```
-   --- Simulation Summary ---
-   Number of riders: X
-   Total deliveries completed: Y
-   Average waiting time: Z minutes
-   Maximum waiting time: W minutes
-   Orders that had to wait: V
-   Maximum queue length: U
-   ```
-
-4. **View Charts**  
-   The simulation automatically generates three bar charts in the `simulation_charts` folder:
-   - `average_waiting_time.png`
-   - `completed_orders.png`
-   - `max_queue_length.png`
-
-## Example Output
-**Console Output (Sample):**
-```
---- Simulation Summary ---
-Number of riders: 3
-Total deliveries completed: 14
-Average waiting time: 0.79 minutes
-Maximum waiting time: 5 minutes
-Orders that had to wait: 4
-Maximum queue length: 2
+python call_center_simulation.py
 ```
 
-**Generated Charts:**  
-Bar charts showing average waiting time, completed orders, and maximum queue length for different rider configurations.
+### Step 3: View results
 
-## Notes
-- The simulation uses **randomized order arrivals and delivery times**, so results may vary slightly on each run.
-- To get more consistent results, you can run multiple iterations and average the metrics.
-- The system is **time-based and event-driven**, modeling realistic rider availability and queue behavior.
+The program will:
 
+- Display simulation results in the console for 2, 3, and 5 agents.
+- Generate visualizations (average wait time, maximum wait time, and number of waiting calls).
+
+## 5. Parameters Used
+
+You can modify the following parameters at the beginning of the script to test other situations:
+
+```python
+total_calls = 30          # total number of calls to simulate
+min_call_time = 2         # minimum call duration in minutes
+max_call_time = 10        # maximum call duration in minutes
+min_arrival_gap = 1       # minimum time gap between calls
+max_arrival_gap = 4       # maximum time gap between calls
+agents_list = [2, 3, 5]   # agent counts for scenarios
+```
+
+## 6. Output Explanation
+
+### Console Output Example:
+
+```
+============================================================
+         A CALL CENTER WITH LIMITED AGENTS SIMULATION
+============================================================
+
+--- Scenario: 2 Agents ---
+Total Calls Handled     : 30
+Average Wait Time (min) : 5.64
+Maximum Wait Time (min) : 43
+Calls That Waited       : 6
+
+--- Scenario: 3 Agents ---
+Total Calls Handled     : 30
+Average Wait Time (min) : 1.00
+Maximum Wait Time (min) : 11
+Calls That Waited       : 5
+
+--- Scenario: 5 Agents ---
+Total Calls Handled     : 30
+Average Wait Time (min) : 0.00
+Maximum Wait Time (min) : 0
+Calls That Waited       : 0
+============================================================
+```
+
+### Charts Generated:
+
+1. Average Waiting Time vs Number of Agents
+2. Maximum Waiting Time vs Number of Agents
+3. Number of Calls That Waited vs Number of Agents
+
+## 7. Project Summary
+
+- Increasing the number of agents reduces waiting times.
+- Beyond 5 agents, further improvement is negligible, showing diminishing returns.
+- Helps determine optimal staffing for cost-effective performance.
+
+## 8. Author and Course Information
+
+- Student Name: W.G.H. Nirmani
+- Student Number: s92075093
+- Registration Number: 421435093
+- Course: EEX5362 – Performance Modelling
