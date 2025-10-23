@@ -1,80 +1,86 @@
-## A call center with limited agents
+# README - Food Delivery Dispatch System Simulation
 
-# Overview
+## Overview
+This project simulates a **food delivery dispatch system** where customer orders are assigned to a limited number of delivery riders. The simulation tracks key performance metrics, such as average waiting time, total completed deliveries, orders that had to wait, and maximum queue length. It allows experimentation with different numbers of riders to analyze system performance under varying resource configurations.
 
-This Python script simulates a call center with a limited number of agents. It models incoming customer calls, agent availability, and waiting queues. The simulation tracks:
+## Features
+- Configurable number of delivery riders.
+- Random order arrivals and variable delivery times.
+- FIFO order queue management when all riders are busy.
+- Records key metrics: average waiting time, total deliveries, maximum waiting time, orders that waited, and maximum queue length.
+- Generates bar charts to visualize performance metrics for each scenario.
 
-Average wait time
+## Requirements
+- Python 3.7 or higher
+- Packages:
+  - `matplotlib` (for generating charts)
+  - `os` (standard Python library for file operations)
 
-Maximum wait time
+Install `matplotlib` via pip:
+```bash
+pip install matplotlib
+```
 
-Number of calls that had to wait
+## File Structure
+```
+simulation_charts/       # Folder where generated charts will be saved
+main.py                  # Python script containing the simulation code
+README.md                # This file
+```
 
-It also generates charts showing the effect of different agent counts on these metrics.
+## Usage Instructions
 
-# Requirements
+1. **Run the Simulation**  
+   Execute the Python script:
+   ```bash
+   python main.py
+   ```
 
-• Python 3.x
+2. **Adjust Simulation Parameters (Optional)**  
+   Inside `main.py`, you can modify parameters such as:
+   ```python
+   SIMULATION_TIME = 60       # Total simulation duration in minutes
+   ORDER_ARRIVAL_RATE = 5     # Average time (minutes) between order arrivals
+   DELIVERY_TIME_MIN = 8      # Minimum delivery duration in minutes
+   DELIVERY_TIME_MAX = 12     # Maximum delivery duration in minutes
+   rider_counts = [3, 5, 8]   # Number of riders to simulate
+   ```
 
-• matplotlib library
+3. **View Simulation Results**  
+   After execution, the console will display a summary for each rider configuration:
+   ```
+   --- Simulation Summary ---
+   Number of riders: X
+   Total deliveries completed: Y
+   Average waiting time: Z minutes
+   Maximum waiting time: W minutes
+   Orders that had to wait: V
+   Maximum queue length: U
+   ```
 
-Install dependencies using:
+4. **View Charts**  
+   The simulation automatically generates three bar charts in the `simulation_charts` folder:
+   - `average_waiting_time.png`
+   - `completed_orders.png`
+   - `max_queue_length.png`
 
-```python pip install matplotlib
+## Example Output
+**Console Output (Sample):**
+```
+--- Simulation Summary ---
+Number of riders: 3
+Total deliveries completed: 14
+Average waiting time: 0.79 minutes
+Maximum waiting time: 5 minutes
+Orders that had to wait: 4
+Maximum queue length: 2
+```
 
-# Running the Simulation
+**Generated Charts:**  
+Bar charts showing average waiting time, completed orders, and maximum queue length for different rider configurations.
 
-1. Open call_center_simulation.py in your IDE or text editor.
-
-2. (Optional) Adjust simulation parameters at the top of the script:
-
-```python
-total_calls = 30
-min_call_time = 2
-max_call_time = 10
-min_arrival_gap = 1
-max_arrival_gap = 4
-agents_list = [2, 3, 5]
-
-3. Run the script:
-```python call_center_simulation.py
-
-4. View results in the console and charts saved as PNG files.
-
-# Outputs
-
-Console Summary for each scenario:
-
-• Total calls handled
-
-• Number of agents
-
-• Average wait time
-
-• Maximum wait time
-
-• Number of calls that waited
-
-Charts (PNG files):
-
-• average_wait_time_chart.png – Average Wait Time vs Number of Agents
-
-• maximum_wait_time_chart.png – Maximum Wait Time vs Number of Agents
-
-• calls_waited_chart.png – Number of Calls That Waited vs Number of Agents
-
-# Customizing the Simulation
-
-• Change total_calls to simulate more or fewer calls.
-
-• Modify min_call_time, max_call_time, min_arrival_gap, max_arrival_gap to model different call behaviors.
-
-• Update agents_list to test additional staffing scenarios.
-
-# Notes
-
-• Random call arrivals and durations may produce slightly different results each run.
-
-• Set random.seed() for reproducible simulations.
-
+## Notes
+- The simulation uses **randomized order arrivals and delivery times**, so results may vary slightly on each run.
+- To get more consistent results, you can run multiple iterations and average the metrics.
+- The system is **time-based and event-driven**, modeling realistic rider availability and queue behavior.
 
